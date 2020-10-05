@@ -11,4 +11,7 @@ router.get("/",(req,res)=>{
             res.send(allProperties);
         }
     })
+    // console.log("Hello");
 });
+
+module.exports = router;

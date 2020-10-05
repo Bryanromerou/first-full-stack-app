@@ -10,11 +10,11 @@ const propertyData = require("./models/prepopulatedData");
 //     process.exit();
 // });
 
-db.Property.find({},(err,allProperties)=>{
-    if(err)
-        console.log(err);
-    else{
-        console.log(allProperties);
-    }
-    process.exit();
-})
+// db.Property.find({},(err,allProperties)=>{
+//     if(err)
+//         console.log(err);
+//     else{
+//         console.log(allProperties);
+//     }
+//     process.exit();
+// })
