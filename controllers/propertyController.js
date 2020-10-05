@@ -32,10 +32,51 @@ router.post("/",(req,res)=>{
 });
 
 //Show
+router.get("/:propertyId",(req,res)=>{
+    db.Property.findById(req.params.propertyId,(err, foundProperty)=>{
+        if(err)
+        console.log(`You've got an error: ${err}`);
+        else {
+            res.render("properties/showProperty",{
+                property: foundProperty,
+            });
+        }
+    });
+});
 //Edit
-//Update
-//Destroy
+router.get("/:propertyId/edit",(req,res)=>{
+    db.Property.findById(req.params.propertyId,(err, editProperty)=>{
+        if(err)
+        console.log(`You've got an error: ${err}`);
+        else {
+            res.render("properties/editProperty",{
+                property: editProperty,
+            });
+        }
+    });
+});
 
+//Update
+router.put("/:propertyId",(req,res) => {
+    db.Property.findByIdAndUpdate(req.params.propertyId,req.body,{new:true},(err, newProperty)=>{
+        if(err)
+        console.log(`You've got an error: ${err}`);
+        else {
+            res.redirect(`/properties/${req.params.propertyId}`);
+        }
+    });
+});
+
+//Destroy
+router.delete("/:propertyId",(req,res)=>{
+    db.Property.findByIdAndRemove(req.params.propertyId,(err,restOfProperties)=>{
+        if(err)
+        console.log(`You've got an error: ${err}`);
+        else {
+            res.redirect(`/properties`);
+        }
+    })
+});
 
 
 
