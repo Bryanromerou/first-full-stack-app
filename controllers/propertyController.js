@@ -3,10 +3,11 @@ const router = express.Router();
 
 const db = require("../models");
 
+//Index
 router.get("/",(req,res)=>{
     db.Property.find({},(err,allProperties)=>{
         if(err)
-            console.log(`You've got an error: ${err}`);
+        console.log(`You've got an error: ${err}`);
         else {
             res.render("properties/indexProperty",{
                 properties: allProperties,
@@ -14,5 +15,29 @@ router.get("/",(req,res)=>{
         }
     })
 });
+//New
+router.get("/new",(req,res)=>{
+    res.render("properties/newProperty");
+});
+
+//Create
+router.post("/",(req,res)=>{
+    db.Property.create(req.body,(err,newProperty)=>{
+        if(err)
+        console.log(`You've got an error: ${err}`);
+        else {
+            res.send(newProperty);
+        }
+    });
+});
+
+//Show
+//Edit
+//Update
+//Destroy
+
+
+
+
 
 module.exports = router;
