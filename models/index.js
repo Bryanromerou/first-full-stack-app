@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-const connectionString = "mongodb://localhost:27017/Properties";
+const connectionString = "mongodb://localhost:27017/properties";
 const Property = require("./Property");
 
 mongoose.connect(connectionString,{
