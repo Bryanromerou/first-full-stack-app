@@ -13,6 +13,10 @@ app.use(methodOverride('_method'));
 const propertyCtrl = require("./controllers/propertyController");
 app.use("/properties", propertyCtrl);
 
+app.get("/",(req,res)=>{
+    res.render("index");
+});
+
 app.listen(PORT, ()=>{
     console.log("Now listening to port 4001");
 });

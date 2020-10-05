@@ -8,10 +8,11 @@ router.get("/",(req,res)=>{
         if(err)
             console.log(`You've got an error: ${err}`);
         else {
-            res.send(allProperties);
+            res.render("properties/indexProperty",{
+                properties: allProperties,
+            });
         }
     })
-    // console.log("Hello");
 });
 
 module.exports = router;
