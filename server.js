@@ -11,8 +11,11 @@ app.use(methodOverride('_method'));
 app.use(express.static("public"));
 
 //Property Controller
+const ctrl = require("./controllers");
 const propertyCtrl = require("./controllers/propertyController");
-app.use("/properties", propertyCtrl);
+app.use("/properties", ctrl.properties);
+app.use("/cities", ctrl.cities);
+// app.use("/cities", ctrl.cities);
 
 app.get("/",(req,res)=>{
     res.render("index");

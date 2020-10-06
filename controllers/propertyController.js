@@ -9,7 +9,7 @@ router.get("/",(req,res)=>{
         if(err)
         console.log(`You've got an error: ${err}`);
         else {
-            res.render("properties/indexProperty",{
+            res.render("properties/index",{
                 properties: allProperties,
             });
         }
@@ -17,7 +17,7 @@ router.get("/",(req,res)=>{
 });
 //New
 router.get("/new",(req,res)=>{
-    res.render("properties/newProperty");
+    res.render("properties/new");
 });
 
 //Create
@@ -37,7 +37,7 @@ router.get("/:propertyId",(req,res)=>{
         if(err)
         console.log(`You've got an error: ${err}`);
         else {
-            res.render("properties/showProperty",{
+            res.render("properties/show",{
                 property: foundProperty,
             });
         }
@@ -49,7 +49,7 @@ router.get("/:propertyId/edit",(req,res)=>{
         if(err)
         console.log(`You've got an error: ${err}`);
         else {
-            res.render("properties/editProperty",{
+            res.render("properties/edit",{
                 property: editProperty,
             });
         }
