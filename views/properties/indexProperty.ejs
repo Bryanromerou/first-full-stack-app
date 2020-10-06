@@ -3,13 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../../css/properties/edit.css">
   <title>Property Index</title>
 </head>
 <body>
   <h1>Welcome To Properties Index</h1>
   <% for (let i = 0; i < properties.length; i++) { %>
     <li style="margin-bottom: 20px;">
-      <a href="/properties/<%= i %>">
+      <a href="/properties/<%= properties[i]._id %>">
         <%= properties[i].address %>
       </a>    
     </li>

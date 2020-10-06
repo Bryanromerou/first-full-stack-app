@@ -8,6 +8,7 @@ const PORT = 4001;
 app.use(bodyParser.urlencoded({ extended: false }));
 app.set("view engine", "ejs");
 app.use(methodOverride('_method'));
+app.use(express.static("public"));
 
 //Property Controller
 const propertyCtrl = require("./controllers/propertyController");
