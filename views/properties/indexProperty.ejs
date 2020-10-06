@@ -3,17 +3,29 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="../../css/properties/edit.css">
+  <link rel="stylesheet" href="../../css/properties/index.css">
   <title>Property Index</title>
 </head>
 <body>
-  <h1>Welcome To Properties Index</h1>
-  <% for (let i = 0; i < properties.length; i++) { %>
-    <li style="margin-bottom: 20px;">
-      <a href="/properties/<%= properties[i]._id %>">
-        <%= properties[i].address %>
-      </a>    
-    </li>
-  <% } %>
+  <header>
+    <h1>Properties Index</h1>
+    <ul class = "navigation">
+      <a href="/"><li>Home</li></a>
+      <a href="/properties/new"><li>Add new property</li></a>
+    </ul>
+  </header>
+  <ul class = "propertyList">
+    <% for (let i = 0; i < properties.length; i++) { %>
+      <li class = "propertyListElement">
+        <a href="/properties/<%= properties[i]._id %>">
+          <div class = "propertyPreview">
+            <img src="<%= properties[i].img %>" alt="<%= properties[i].address %>" class="previewPicture">
+            <p class="propertyAddressIndex"><%= properties[i].address %></p>
+          </div>
+        </a>    
+      </li>
+      <% } %>
+  </ul>
+
 </body>
 </html>

@@ -26,7 +26,7 @@ router.post("/",(req,res)=>{
         if(err)
         console.log(`You've got an error: ${err}`);
         else {
-            res.send(newProperty);
+            res.redirect("/properties");
         }
     });
 });
