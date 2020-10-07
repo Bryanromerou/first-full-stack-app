@@ -1,6 +1,5 @@
 const mongoose = require("mongoose");
 const connectionString = "mongodb://localhost:27017/properties";
-const Property = require("./Property");
 
 mongoose.connect(connectionString,{
     useNewUrlParser: true,
@@ -18,5 +17,6 @@ mongoose.connection.on("error",(err)=>{
 });
 
 module.exports = {
-    Property: Property,
+    Property: require("./Property"),
+    Zipcode: require("./Zipcode"),
 }

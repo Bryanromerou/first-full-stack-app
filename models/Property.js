@@ -6,8 +6,12 @@ const propertySchema = new Schema({
     price: {type: Number},
     bedrooms: {type: Number, required: true},
     lot: {type: Number},
-    img: {type: String}
-});
+    img: {type: String},
+    zipcode: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Zipcode"
+    }
+},{timestamps: true});
 
 const Property = mongoose.model("Property", propertySchema);
 module.exports = Property;

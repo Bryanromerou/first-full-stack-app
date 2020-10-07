@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zipcode Index</title>
+</head>
+<body>
+    <h1>Zipcode Index</h1>
+    <ul>
+        <% for(let i = 0; i < zipcodes.length; i++){ %>
+            <li>
+              <a href="/zipcodes/<%= zipcodes[i]._id %>"><%= zipcodes[i].code %></a>
+            </li>
+        <% } %>
+    </ul>
+</body>
+</html>

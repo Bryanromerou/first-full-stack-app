@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../css/properties/show.css">
+    <title>Home zipcode</title>
+</head>
+<body>
+    <h1>Welcome To Show zipcode</h1>
+    <h2><%= zipcode.code%></h2>
+    <h3>State: <%= zipcode.address%></h3>
+    <h4>City: <%= zipcode.city%></h4>
+
+    <form action="/zipcodes/<%=zipcode._id%>?_method=DELETE" method="POST">
+        <input type="submit" value="Property Sold">
+    </form>
+
+    <form action="/zipcodes/<%= zipcode._id%>/edit" method="GET">
+        <input type="submit" value="Edit Property">
+    </form>
+
+    <form action="/zipcodes" method="GET">
+        <input type="submit" value="All Properties">
+    </form>
+    <ul class = "propertyList">
+        <% for (let i = 0; i < properties.length; i++) { %>
+          <li class = "propertyListElement">
+            <a href="/properties/<%= properties[i]._id %>">
+              <div class = "propertyPreview">
+                <img src="<%= properties[i].img %>" alt="<%= properties[i].address %>" class="previewPicture">
+                <p class="propertyAddressIndex"><%= properties[i].address %></p>
+              </div>
+            </a>    
+          </li>
+          <% } %>
+    </ul>
+
+
+</body>
+</html>

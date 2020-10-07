@@ -17,7 +17,11 @@ router.get("/",(req,res)=>{
 });
 //New
 router.get("/new",(req,res)=>{
-    res.render("properties/new");
+    db.Zipcode.find({},(err,allZipcodes)=>{
+        res.render("properties/new",{
+            zipcodes: allZipcodes,
+        });
+    });
 });
 
 //Create
@@ -35,12 +39,15 @@ router.post("/",(req,res)=>{
 router.get("/:propertyId",(req,res)=>{
     db.Property.findById(req.params.propertyId,(err, foundProperty)=>{
         if(err)
-        console.log(`You've got an error: ${err}`);
-        else {
+            console.log(`You've got an error: ${err}`);
+        db.Zipcode.findById(foundProperty.zipcode._id,(err,foundZipcode)=>{
+            if(err)
+                console.log(`You've got an error: ${err}`);
             res.render("properties/show",{
                 property: foundProperty,
+                zipCode: foundZipcode,
             });
-        }
+        });
     });
 });
 //Edit

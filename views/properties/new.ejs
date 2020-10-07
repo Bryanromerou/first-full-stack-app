@@ -29,6 +29,11 @@
         <label for="img">Image Url:</label>
         <input type="text" id = "img" name  = "img">
     </div>
+    <select name="zipcode">
+        <% zipcodes.forEach((zipcode) => { %>
+          <option value="<%= zipcode._id %>"><%= zipcode.code %></option>
+        <% }) %>
+    </select>
     <input type="submit" value="Add New Property">
 </form>
 </body>

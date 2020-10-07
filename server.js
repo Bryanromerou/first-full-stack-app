@@ -14,8 +14,8 @@ app.use(express.static("public"));
 const ctrl = require("./controllers");
 const propertyCtrl = require("./controllers/propertyController");
 app.use("/properties", ctrl.properties);
-app.use("/cities", ctrl.cities);
-// app.use("/cities", ctrl.cities);
+app.use("/zipcodes", ctrl.zipcodes);
+
 
 app.get("/",(req,res)=>{
     res.render("index");
